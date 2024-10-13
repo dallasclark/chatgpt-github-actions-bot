@@ -1,0 +1,6 @@
+name: 'ChatGPT GitHub Actions Bot'
+description: 'Generates files in your repository using ChatGPT'
+inputs:
+  descriptions:
+    description: 'Descriptions (comma-separated)'
+    required: true
