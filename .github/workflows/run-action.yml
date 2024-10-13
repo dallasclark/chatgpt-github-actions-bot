@@ -1,0 +1,20 @@
+name: Run Action
+
+on:
+  workflow_call:
+    secrets:
+      OPENAI_API_TOKEN:
+        required: true
+  workflow_dispatch:
+    inputs:
+      descriptions:
+        description: 'Descriptions based on which code files are to be generated'
+        required: true
+
+jobs:
+  test:
+    name: Run Action
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
