@@ -3,12 +3,17 @@ name: Run Action
 on:
   workflow_call:
     secrets:
+      OPENAI_API_ORGANIZATION_ID:
+        required: true
+      OPENAI_API_PROJECT_ID:
+        required: true
       OPENAI_API_TOKEN:
         required: true
+
   workflow_dispatch:
     inputs:
       descriptions:
-        description: 'Descriptions based on which code files are to be generated'
+        description: 'Description based on which code files are to be generated'
         required: true
 
 jobs:
@@ -18,3 +23,16 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+
+    - name: Run Action
+      id: main
+      uses: ./
+      with:
+        descriptions: ${{ github.event.inputs.descriptions || 'Provide suggestions on how to improve this GitHub Action by completing code suggestions for this repository.' }}
+        openai_api_organization_id: ${{ secrets.OPENAI_API_ORGANIZATION_ID }}
+        openai_api_project_id: ${{ secrets.OPENAI_API_PROJECT_ID }}
+        openai_api_token: ${{ secrets.OPENAI_API_TOKEN }}
+
+    - name: Output Action
+      run: |
+        echo "The files changed are ${{ steps.main.outputs.files }}"
