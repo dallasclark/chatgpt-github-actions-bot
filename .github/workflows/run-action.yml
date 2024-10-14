@@ -33,7 +33,13 @@ jobs:
         OPENAI_API_PROJECT_ID: ${{ secrets.OPENAI_API_PROJECT_ID }}
         OPENAI_API_TOKEN: ${{ secrets.OPENAI_API_TOKEN }}
 
-    - name: Output Action
-      run: |
-        echo "The files written are:"
-        echo "${{ steps.main.outputs.files }}"
+    # - name: Output Action
+    #   run: |
+    #     echo "The files written are:"
+    #     echo "${{ steps.main.outputs.files }}"
+
+    - name: Create Pull Request
+      id: create-pull-request
+      uses: peter-evans/create-pull-request@v7
+      with:
+        add-paths: ${{ steps.main.outputs.files }}
