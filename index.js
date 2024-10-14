@@ -148,6 +148,8 @@ function writeFilesToRepository(files) {
       process.exit();
     }
   }
+
+  core.setOutput("files", files.map(file => file.filename));
 }
 
 async function run() {
