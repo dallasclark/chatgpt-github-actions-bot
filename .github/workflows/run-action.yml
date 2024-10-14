@@ -36,4 +36,4 @@ jobs:
     - name: Output Action
       run: |
         echo "The files written are:"
-        echo ${{ toJson(steps.main.outputs.files) }}
+        echo ${{ steps.main.outputs.files }}
