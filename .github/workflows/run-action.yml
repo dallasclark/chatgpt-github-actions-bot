@@ -11,7 +11,7 @@ on:
         required: true
     inputs:
       descriptions:
-        # description: 'Descriptions determine what files you want to be generated'
+        description: 'Descriptions determine what files you want to be generated'
         required: true
         type: string
 

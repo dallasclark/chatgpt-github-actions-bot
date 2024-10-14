@@ -12,11 +12,7 @@ concurrency:
 jobs:
   test-action:
     name: Test Action
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
-    - name: Run Action
-      uses: dallasclark/chatgpt-github-actions-bot/.github/workflows/run-action.yml@develop
-      # secrets: inherit
+    uses: ./.github/workflows/run-action.yml
+    secrets: inherit
+    with:
+      descriptions: "In the '/test/blog-articles' directory, create a Hello World blog article using Markdown format."
