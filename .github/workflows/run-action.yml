@@ -3,8 +3,6 @@ name: Run Action
 on:
   workflow_call:
     secrets:
-      GITHUB_TOKEN:
-        required: false
       OPENAI_API_ORGANIZATION_ID:
         required: true
       OPENAI_API_PROJECT_ID:
