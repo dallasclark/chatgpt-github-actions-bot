@@ -6,6 +6,10 @@ inputs:
     description: 'Descriptions (comma-separated)'
     required: true
 
+  OPENAI_API_MODEL:
+    description: 'OpenAI API Model'
+    required: false
+
   OPENAI_API_ORGANIZATION_ID:
     description: 'OpenAI API Organization ID'
     required: true

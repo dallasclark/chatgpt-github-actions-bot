@@ -28,10 +28,11 @@ jobs:
       id: main
       uses: ./
       with:
-        descriptions: ${{ github.event.inputs.descriptions || 'Provide suggestions on how to improve this GitHub Action by completing code suggestions for this repository.' }}
-        openai_api_organization_id: ${{ secrets.OPENAI_API_ORGANIZATION_ID }}
-        openai_api_project_id: ${{ secrets.OPENAI_API_PROJECT_ID }}
-        openai_api_token: ${{ secrets.OPENAI_API_TOKEN }}
+        descriptions: ${{ github.event.inputs.descriptions || 'In the "/test/blog-articles" directory, I want you to generate two blog articles. The articles should be at least 200 words long, and should be less than 1000 characters long. The format should be markdown, and should not contain any HTML. The articles should be about automated testing and the importance setting up a great testing framework, with one automated testing topic per article.' }}
+        OPENAI_API_MODEL: ${{ vars.OPENAI_API_MODEL }}
+        OPENAI_API_ORGANIZATION_ID: ${{ secrets.OPENAI_API_ORGANIZATION_ID }}
+        OPENAI_API_PROJECT_ID: ${{ secrets.OPENAI_API_PROJECT_ID }}
+        OPENAI_API_TOKEN: ${{ secrets.OPENAI_API_TOKEN }}
 
     - name: Output Action
       run: |
