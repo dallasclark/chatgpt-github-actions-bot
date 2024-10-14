@@ -11,6 +11,7 @@ on:
         required: true
     inputs:
       descriptions:
+        default: 'In the "/test/blog-articles" directory, I want you to generate two blog articles. The articles should be at least 200 words long, and should be less than 1000 characters long. The format should be markdown, and should not contain any HTML. The articles should be about automated testing and the importance setting up a great testing framework, with one automated testing topic per article.'
         description: 'Descriptions determine what files you want to be generated'
         required: true
         type: string
@@ -32,7 +33,7 @@ jobs:
       id: main
       uses: ./
       with:
-        descriptions: ${{ github.event.inputs.descriptions || 'In the "/test/blog-articles" directory, I want you to generate two blog articles. The articles should be at least 200 words long, and should be less than 1000 characters long. The format should be markdown, and should not contain any HTML. The articles should be about automated testing and the importance setting up a great testing framework, with one automated testing topic per article.' }}
+        descriptions: ${{ github.event.inputs.descriptions }}
         OPENAI_API_MODEL: ${{ vars.OPENAI_API_MODEL }}
         OPENAI_API_ORGANIZATION_ID: ${{ secrets.OPENAI_API_ORGANIZATION_ID }}
         OPENAI_API_PROJECT_ID: ${{ secrets.OPENAI_API_PROJECT_ID }}
