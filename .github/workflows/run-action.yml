@@ -9,12 +9,11 @@ on:
         required: true
       OPENAI_API_TOKEN:
         required: true
-
-  workflow_dispatch:
     inputs:
       descriptions:
-        description: 'Description based on which code files are to be generated'
+        # description: 'Descriptions determine what files you want to be generated'
         required: true
+        type: string
 
 jobs:
   test:
