@@ -138,6 +138,7 @@ function writeFilesToRepository(files) {
 
       // File content
       const filePathAndName = `${filePath}/${fileName}`;
+      file.filename = filePathAndName;
       fs.writeFileSync(filePathAndName, file.content);
       console.debug("Written file:");
       console.debug(filePathAndName);
