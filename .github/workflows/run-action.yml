@@ -9,7 +9,7 @@ on:
         required: true
       OPENAI_API_TOKEN:
         required: true
-  workflow_dispatch:
+        
     inputs:
       descriptions:
         description: 'Descriptions determine what files you want to be generated'
