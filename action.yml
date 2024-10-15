@@ -1,0 +1,31 @@
+name: 'ChatGPT GitHub Actions Bot'
+description: 'Generates files in your repository using ChatGPT'
+
+inputs:
+  descriptions:
+    description: 'Descriptions (comma-separated)'
+    required: true
+
+  OPENAI_API_MODEL:
+    description: 'OpenAI API Model'
+    required: false
+
+  OPENAI_API_ORGANIZATION_ID:
+    description: 'OpenAI API Organization ID'
+    required: true
+
+  OPENAI_API_PROJECT_ID:
+    description: 'OpenAI API Project ID'
+    required: true
+  
+  OPENAI_API_TOKEN:
+    description: 'OpenAI API Token'
+    required: true
+
+outputs:
+  files:
+    description: 'List of files changed'
+  
+runs:
+  using: 'node20'
+  main: 'index.js'

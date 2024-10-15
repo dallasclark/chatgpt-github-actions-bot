@@ -1,0 +1,21 @@
+name: Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test-action:
+    name: Test Action
+    permissions:
+      contents: write
+      pull-requests: write
+    secrets: inherit
+    uses: ./.github/workflows/run-action.yml
+    with:
+      descriptions: "In the '/test/blog-articles' directory, create a Hello World blog article using Markdown format."
