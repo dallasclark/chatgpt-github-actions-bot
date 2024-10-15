@@ -2,11 +2,6 @@ name: Run Action
 
 on:
   workflow_call:
-    inputs:
-      descriptions:
-        description: 'Descriptions determine what files you want to be generated'
-        required: true
-        type: string
     secrets:
       OPENAI_API_ORGANIZATION_ID:
         required: true
@@ -14,6 +9,12 @@ on:
         required: true
       OPENAI_API_TOKEN:
         required: true
+  workflow_dispatch:
+    inputs:
+      descriptions:
+        description: 'Descriptions determine what files you want to be generated'
+        required: true
+        type: string
 
 jobs:
   test:
