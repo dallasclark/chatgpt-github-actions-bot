@@ -137,9 +137,9 @@ async function run() {
   validateInputs();
   debugMessages();
 
-  const files = await generateFiles();
+  // const files = await generateFiles();
   // TODO: Validate the response is valid JSON and the response structure we're expecting
-  writeFilesToRepository(files);
+  // writeFilesToRepository(files);
 }
 
 run();
