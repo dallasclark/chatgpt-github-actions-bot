@@ -1,5 +1,8 @@
 name: 'ChatGPT GitHub Actions Bot'
 description: 'Generates files in your repository using ChatGPT'
+branding:
+  icon: 'code'
+  color: 'blue'
 
 inputs:
   descriptions:
