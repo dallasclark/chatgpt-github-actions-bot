@@ -14,10 +14,19 @@ This action generates files in your repository using ChatGPT.
 
 The files modified.
 
+```
+[
+  {
+    "filename": "the/path/to/file.txt",
+    "content": "The code contents of the file"
+  }
+]
+```
+
 ## Example usage
 
 ```yaml
-uses: actions/chatgpt-github-actions-bot@main
+uses: dallasclark/chatgpt-github-actions-bot@main
 with:
-  descriptions: "Lint the files automatically using GitHub Actions"
+  descriptions: "Create a blog article in the /src/blog-articles/ folder about the latest trends in software development."
 ```
