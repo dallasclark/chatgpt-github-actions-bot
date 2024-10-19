@@ -2,6 +2,14 @@
 
 This action generates files in your repository using ChatGPT.
 
+## Example usage
+
+```yaml
+uses: dallasclark/chatgpt-github-actions-bot@1.0.0
+with:
+  descriptions: "Create a blog article in the /src/blog-articles/ folder about the latest trends in software development."
+```
+
 ## Inputs
 
 ### `description`
@@ -21,12 +29,4 @@ The files modified.
     "content": "The code contents of the file"
   }
 ]
-```
-
-## Example usage
-
-```yaml
-uses: dallasclark/chatgpt-github-actions-bot@main
-with:
-  descriptions: "Create a blog article in the /src/blog-articles/ folder about the latest trends in software development."
 ```
