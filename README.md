@@ -5,7 +5,7 @@ This action generates files in your repository using ChatGPT.
 ## Example usage
 
 ```yaml
-uses: dallasclark/chatgpt-github-actions-bot@1.0.0
+uses: dallasclark/chatgpt-github-actions-bot@1
 with:
   descriptions: "Create a blog article in the /src/blog-articles/ folder about the latest trends in software development."
 ```

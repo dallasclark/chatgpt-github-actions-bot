@@ -78,8 +78,8 @@ async function generateFiles() {
                 "content": "The code contents of the file"
               },
               {
-                  "filename": "the/path/to/file.txt",
-                  "content": "The code contents of the file"
+                "filename": "the/path/to/file.txt",
+                "content": "The code contents of the file"
               }
             ]
 
