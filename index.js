@@ -71,7 +71,7 @@ async function generateFiles() {
             4. Provide the information as a compact, JSON-formatted array response.
             5. Each object should contain a 'filename' key, and the contents of the file should be in a 'content' key.
             
-            Expected Output (in JSON format):
+            Example of the Full Expected Output, nothing else should be added to the response. This is an array containing an array of the files that are generated:
             [
               {
                 "filename": "the/path/to/file.txt",
