@@ -11,7 +11,7 @@ const OPENAI_API_ORGANIZATION_ID = core.getInput("OPENAI_API_ORGANIZATION_ID") |
 
 const OPENAI_API_PROJECT_ID = core.getInput("OPENAI_API_PROJECT_ID") || process.env.OPENAI_API_PROJECT_ID;
 
-const OPENAI_API_TEMPERATURE = 0.5;
+const OPENAI_API_TEMPERATURE = 0.7;
 
 const OPENAI_API_TOKEN = core.getInput("OPENAI_API_TOKEN") || process.env.OPENAI_API_TOKEN;
 
@@ -75,14 +75,14 @@ async function generateFiles() {
 
     const openaiChatCompletionContent = `You are a very helpful developer. Your job is to write code. Your goal is to make code that is production ready.
       
-      Your Task: 
+      Your Task:
       1. Stick to the descriptions provided below, don't add anything else.
       2. Use the minimum amount of required files.
       3. Make the minimum amount of assumptions about the rest of the repository.
-      4. Provide the information as a compact, JSON-formatted array response.
-      5. Each object should contain a 'filename' key, and the contents of the file should be in a 'content' key.
+      4. Provide a response as an array, with each array element being a JSON object.
+      5. Each JSON object should contain a 'filename' key, and the contents of the file should be in a 'content' key.
       
-      Example of the Full Expected Output, nothing else should be added to the response. The expected output is an array containing JSON of the files that are generated:
+      Example of the Full Expected Output for 2 files generated:
       [
         {
           "filename": "the/path/to/file.txt",
@@ -94,7 +94,7 @@ async function generateFiles() {
         }
       ]
 
-      Your descriptions are: ${descriptions}`;
+      Your 'descriptions' are: ${descriptions}`;
     log(`OpenAI Prompt: ${openaiChatCompletionContent}`);
   
     const completion = await _openai.chat.completions.create({
@@ -104,10 +104,7 @@ async function generateFiles() {
           content: openaiChatCompletionContent,
         },
       ],
-      model: OPENAI_API_MODEL,
-      response_format: {
-        type: "json_object",
-      },
+      model: OPENAI_API_MODEL
     });
 
     if (completion.error) {
